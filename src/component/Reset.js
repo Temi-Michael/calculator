@@ -1,9 +1,12 @@
-export default function Reset() {
-
+export default function Reset({ labelInput, labelResult }) {
     return (
         <div className="resetFrame">
-            <button type="button" className="resetBtn">Reset Input</button>
-            <button type="button" className="resetBtn">Reset Result</button>
+            <button type="button" className="resetBtn">
+                {labelInput}
+            </button>
+            <button type="button" className="resetBtn">
+                {labelResult}
+            </button>
         </div>
-    )
+    );
 }

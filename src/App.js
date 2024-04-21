@@ -12,7 +12,10 @@ function App() {
 
   const [value1, setValue1] = useState('');
   const [value2, setValue2] = useState('');
-  const [result, setResult] = useState('')
+  const [result, setResult] = useState('');
+  // const [resetInput, setResultInput] = useState('');
+  // const [resetResult, setResultResult] = useState('');
+
 
   const handleValue1Change = (event) => {
     setValue1(Number(event.target.value));
@@ -47,7 +50,7 @@ function App() {
       <Subtract onClick={() => handleOperation('subtract')} label="Subtract" />
       <Multiply onClick={() => handleOperation('multiply')} label="Multiply" />
       <Division onClick={() => handleOperation('division')} label="Divide" />
-      <Reset />
+      <Reset labelInput="Reset Input" labelResult="Reset Result" />
       <Result result={ result } />
     </div>
   );
