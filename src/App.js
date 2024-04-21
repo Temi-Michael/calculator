@@ -53,6 +53,12 @@ function App() {
     setResult('');
   };
 
+  const reset = () => {
+    setValue1('')
+    setValue2('')
+    setResult('')
+  }
+
   return (
     <div className='app'>
       <Input value1={value1} value2={value2} onChange1={handleValue1Change} onChange2={handleValue2Change} />
@@ -60,7 +66,7 @@ function App() {
       <Subtract onClick={() => handleOperation('subtract')} label="Subtract" />
       <Multiply onClick={() => handleOperation('multiply')} label="Multiply" />
       <Division onClick={() => handleOperation('division')} label="Divide" />
-      <Reset labelInput="Reset Input" labelResult="Reset Result" onResetInput={handleResetInput} onResetResult={handleResetResult} />
+      <Reset labelInput="Reset Input" labelResult="Reset Result" reset="Reset" onReset={reset} onResetInput={handleResetInput} onResetResult={handleResetResult} />
       <Result result={ result } />
     </div>
   );

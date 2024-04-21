@@ -1,4 +1,4 @@
-export default function Reset({ labelInput, labelResult, onResetInput, onResetResult }) {
+export default function Reset({ labelInput, labelResult, reset, onReset, onResetInput, onResetResult }) {
     return (
         <div className="resetFrame">
             <button type="button" className="resetBtn" onClick={onResetInput}>
@@ -6,6 +6,9 @@ export default function Reset({ labelInput, labelResult, onResetInput, onResetRe
             </button>
             <button type="button" className="resetBtn" onClick={onResetResult}>
                 {labelResult}
+            </button>
+            <button type="button" className="resetBtn" onClick={onReset}>
+                {reset}
             </button>
         </div>
     );
