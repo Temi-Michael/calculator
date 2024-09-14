@@ -7,6 +7,7 @@ import Multiply from './component/Multiply';
 import Reset from './component/Reset';
 import Result from './component/Result';
 import Subtract from './component/Subtract';
+import Footer from './component/Footer';
 
 function App() {
 
@@ -71,6 +72,7 @@ function App() {
       </div>
       <Reset labelInput="Reset Input" labelResult="Reset Result" reset="Reset" onReset={reset} onResetInput={handleResetInput} onResetResult={handleResetResult} />
       <Result result={result} />
+      <Footer />
     </div>
   );
 }
