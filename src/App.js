@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Add from './component/Add';
 import Division from './component/Division';
 import Input from './component/Input';
@@ -61,13 +61,16 @@ function App() {
 
   return (
     <div className='app'>
+      <h1>Simple Calculator App</h1>
       <Input value1={value1} value2={value2} onChange1={handleValue1Change} onChange2={handleValue2Change} />
-      <Add onClick={() => handleOperation('add')} label="Add"  />
-      <Subtract onClick={() => handleOperation('subtract')} label="Subtract" />
-      <Multiply onClick={() => handleOperation('multiply')} label="Multiply" />
-      <Division onClick={() => handleOperation('division')} label="Divide" />
+      <div id='operations'>
+        <Add onClick={() => handleOperation('add')} label="Add" />
+        <Subtract onClick={() => handleOperation('subtract')} label="Subtract" />
+        <Multiply onClick={() => handleOperation('multiply')} label="Multiply" />
+        <Division onClick={() => handleOperation('division')} label="Divide" />
+      </div>
       <Reset labelInput="Reset Input" labelResult="Reset Result" reset="Reset" onReset={reset} onResetInput={handleResetInput} onResetResult={handleResetResult} />
-      <Result result={ result } />
+      <Result result={result} />
     </div>
   );
 }
