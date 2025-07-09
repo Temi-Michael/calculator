@@ -19,10 +19,11 @@ function Time() {
 }
 
 export default function Footer() {
+    const year = new Date().getFullYear()
     return (
         <div className="footer">
             <p className="footertext">
-                Temi Michael  •  © 2024
+                Temi Michael  •  © {year}
                 <Time />
             </p>
         </div>

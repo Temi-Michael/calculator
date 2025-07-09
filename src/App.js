@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Add from './component/Add';
 import Division from './component/Division';
 import Input from './component/Input';
@@ -9,36 +9,41 @@ import Result from './component/Result';
 import Subtract from './component/Subtract';
 import Footer from './component/Footer';
 
-function App() {
+function Apps() {
 
-  const [value1, setValue1] = useState('');
-  const [value2, setValue2] = useState('');
+  const [values, setValues] = useState({
+    value1: '',
+    value2: '',
+  })
+
+  const handleValuesChange = (e) => {
+    const { name, value } = e.target;
+    setValues((prevData) => ({
+      ...prevData,
+      [name]: Number(value)
+    }))
+
+  }
+
   const [result, setResult] = useState('');
-  // const [resetInput, setResultInput] = useState('');
-  // const [resetResult, setResultResult] = useState('');
 
-
-  const handleValue1Change = (event) => {
-    setValue1(Number(event.target.value));
-  };
-
-  const handleValue2Change = (event) => {
-    setValue2(Number(event.target.value));
-  };
 
   const handleOperation = (operation) => {
+    const v1 = Number(values.value1) || 0;
+    const v2 = Number(values.value2) || 0;
     switch (operation) {
       case 'add':
-        setResult(value1 + value2);
+        setResult(v1 + v2);
         break;
       case 'subtract':
-        setResult(value1 - value2);
+        setResult(v1 - v2);
         break;
       case 'multiply':
-        setResult(value1 * value2);
+        setResult(v1 * v2);
         break;
       case 'division':
-        setResult(value1 / value2);
+        let ans = (v1 / v2)
+        setResult(ans.toFixed(4));
         break;
       default:
         break;
@@ -46,8 +51,7 @@ function App() {
   };
 
   const handleResetInput = () => {
-    setValue1('');
-    setValue2('');
+    setValues({ value1: '', value2: '' });
   };
 
   const handleResetResult = () => {
@@ -55,15 +59,14 @@ function App() {
   };
 
   const reset = () => {
-    setValue1('')
-    setValue2('')
-    setResult('')
+    setValues({ value1: '', value2: '' });
+    setResult('');
   }
 
   return (
     <div className='app'>
       <h1>Simple Calculator App</h1>
-      <Input value1={value1} value2={value2} onChange1={handleValue1Change} onChange2={handleValue2Change} />
+      <Input values={values} onChanges={handleValuesChange} />
       <div id='operations'>
         <Add onClick={() => handleOperation('add')} label="Add" />
         <Subtract onClick={() => handleOperation('subtract')} label="Subtract" />
@@ -77,4 +80,4 @@ function App() {
   );
 }
 
-export default App;
+export default Apps;
