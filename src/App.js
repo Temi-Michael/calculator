@@ -20,9 +20,8 @@ function Apps() {
     const { name, value } = e.target;
     setValues((prevData) => ({
       ...prevData,
-      [name]: Number(value)
-    }))
-
+      [name]: value
+    }));
   }
 
   const [result, setResult] = useState('');
